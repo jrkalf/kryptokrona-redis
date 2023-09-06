@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kryptokrona-redis
+  namespace: kryptokrona
+spec:
+  selector:
+    app: kryptokrona-redis
+  ports:
+    - port: 6379
+      targetPort: 6379
+      name: "inbound-to-redis"
+  type: LoadBalancer
